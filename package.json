@@ -1,6 +1,6 @@
 {
   "name": "@arunachalamarc017/luna-cli",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "Luna CLI - Modern TUI in Ink",
   "main": "dist/index.js",
   "type": "module",
