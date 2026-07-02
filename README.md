@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="luna-cli.jpg" alt="Luna Banner" width="100%" />
+  <img src="https://raw.githubusercontent.com/Arunachalam-gojosaturo/Luna-cli/main/luna-cli.jpg" alt="Luna Banner" width="100%" />
   <h1>🌙 Luna CLI</h1>
   <p><strong>Your Personal AI Coding Assistant & Friend right in your Terminal.</strong></p>
   <p>
