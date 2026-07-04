@@ -1,0 +1,3 @@
+[console_scripts]
+luna = luna.cli:main
+luna-cli = luna.cli:main
