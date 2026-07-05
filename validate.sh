@@ -1,9 +1,10 @@
 #!/bin/bash
 # LUNA CLI - Comprehensive Validation Test Suite
 # Tests all features and verifies installation
-
 set -e
 
+# Disable exit on error for test_command evaluations
+set +e
 # Colors
 GREEN='\033[0;32m'
 RED='\033[0;31m'
@@ -11,6 +12,8 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 CYAN='\033[0;36m'
 NC='\033[0m'
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 TESTS_PASSED=0
 TESTS_FAILED=0
@@ -27,7 +30,7 @@ test_command() {
     echo -ne "${BLUE}Testing: ${name}...${NC} "
     
     if output=$(eval "$command" 2>&1); then
-        if echo "$output" | grep -q "$expected_pattern"; then
+        if echo "$output" | grep -iq "$expected_pattern"; then
             echo -e "${GREEN}✓ PASS${NC}"
             TESTS_PASSED=$((TESTS_PASSED + 1))
             return 0
@@ -49,7 +52,7 @@ test_command() {
 # Header
 echo ""
 echo -e "${CYAN}╔════════════════════════════════════════════╗${NC}"
-echo -e "${CYAN}║   LUNA CLI - Validation Test Suite v0.1.0  ║${NC}"
+echo -e "${CYAN}║   LUNA CLI - Validation Test Suite v0.2.2  ║${NC}"
 echo -e "${CYAN}╚════════════════════════════════════════════╝${NC}"
 echo ""
 
@@ -77,7 +80,7 @@ echo ""
 # Test 3: Version Information
 echo -e "${YELLOW}[3] Testing Version Information${NC}"
 echo "────────────────────────────────"
-test_command "Version command" "luna-cli version" "v0.1.0"
+test_command "Version command" "luna-cli version" "v0.2.2"
 echo ""
 
 # Test 4: Configuration
@@ -182,8 +185,6 @@ echo ""
 # Test 8: Documentation Files
 echo -e "${YELLOW}[8] Testing Documentation${NC}"
 echo "────────────────────────────────"
-
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DOCS=(
     "README.md"
     "INSTALLATION_GUIDE.md"
@@ -232,10 +233,10 @@ echo ""
 echo -e "${YELLOW}[10] Testing Python Modules${NC}"
 echo "────────────────────────────────"
 
-test_command "Import luna module" "python3 -c 'import luna'" ""
-test_command "Import luna.cli" "python3 -c 'from luna import cli'" ""
-test_command "Import luna.chat" "python3 -c 'from luna.chat import chat'" ""
-test_command "Import luna.providers" "python3 -c 'from luna.providers import base'" ""
+test_command "Import luna module" "python3 -c 'import luna' && echo 'success'" "success"
+test_command "Import luna.cli" "python3 -c 'from luna import cli' && echo 'success'" "success"
+test_command "Import luna.chat" "python3 -c 'from luna.chat import chat' && echo 'success'" "success"
+test_command "Import luna.providers" "python3 -c 'from luna.providers import base' && echo 'success'" "success"
 
 echo ""
 

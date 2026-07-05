@@ -118,7 +118,7 @@ def list_providers():
     table.add_column("Default", style="cyan")
     
     for provider_name in config.providers:
-        is_default = "✓" if provider_name == config.config.get("default_provider") else ""
+        is_default = "✓" if provider_name == getattr(config.config, "default_provider", None) else ""
         table.add_row(provider_name.upper(), "Configured", is_default)
     
     console.print(table)
