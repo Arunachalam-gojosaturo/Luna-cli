@@ -19,7 +19,7 @@ makepkg --printsrcinfo > .SRCINFO
 
 echo "Committing to AUR..."
 git add PKGBUILD .SRCINFO
-git commit -m "Update Luna CLI to 0.2.2"
+git commit -m "Update Luna CLI to 0.2.3"
 
 echo "Pushing to AUR..."
 git push -u origin master

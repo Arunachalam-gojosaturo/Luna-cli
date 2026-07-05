@@ -52,7 +52,7 @@ test_command() {
 # Header
 echo ""
 echo -e "${CYAN}╔════════════════════════════════════════════╗${NC}"
-echo -e "${CYAN}║   LUNA CLI - Validation Test Suite v0.2.2  ║${NC}"
+echo -e "${CYAN}║   LUNA CLI - Validation Test Suite v0.2.3  ║${NC}"
 echo -e "${CYAN}╚════════════════════════════════════════════╝${NC}"
 echo ""
 
@@ -80,7 +80,7 @@ echo ""
 # Test 3: Version Information
 echo -e "${YELLOW}[3] Testing Version Information${NC}"
 echo "────────────────────────────────"
-test_command "Version command" "luna-cli version" "v0.2.2"
+test_command "Version command" "luna-cli version" "v0.2.3"
 echo ""
 
 # Test 4: Configuration

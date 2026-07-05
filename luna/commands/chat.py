@@ -93,7 +93,7 @@ def _start_chat(message: Optional[str] = None, provider: Optional[str] = None, m
     # Interactive loop
     while True:
         try:
-            user_input = Prompt.ask("[cyan]You[/]", multiline=True)
+            user_input = Prompt.ask("[cyan]You[/]")
             
             if not user_input.strip():
                 continue

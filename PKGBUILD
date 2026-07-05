@@ -2,7 +2,7 @@
 # LUNA CLI - AI Coding Assistant for LUNA OS X
 
 pkgname=luna-cli
-pkgver=0.2.2
+pkgver=0.2.3
 pkgrel=1
 pkgdesc="🌙 LUNA - AI Coding Assistant CLI for LUNA OS X"
 arch=('x86_64' 'aarch64')
